@@ -1,0 +1,12 @@
+<?php 
+session_start();
+if(isset($_SESSION['id'])){
+    if(is_numeric($_SESSION)){
+        header("location:admin.php");
+    }else{
+    header("location:studentAdmin.php");
+    }
+}else{
+    header("location:login.php");
+}
+?>
