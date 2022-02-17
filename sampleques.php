@@ -2,9 +2,7 @@
 session_start();
 require("conn.php");
 require("adminHeader.php");
-$set_query="SELECT * FROM sets";
 $c_sql="SELECT * FROM `catagory`";
-$set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
 ?>
         <div class="content-body">
             <div class="container-fluid">
@@ -12,7 +10,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Hi <?php echo $name; ?></h4>
-                            <p class="mb-0">Add some question for users</p>
+                            <p class="mb-0">Add some sample question for practice</p>
                         </div>
                     </div>
                 </div>
@@ -23,7 +21,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                         </div>
                         <div class="card-body">
                             <div class="basic-form">
-                                <form action="questionadd.php" method="post">
+                                <form action="samplequestionadd.php" method="post">
 
                                     <div class="form-row">
                                         <div class="form-group col-md-8">
@@ -66,13 +64,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label>Set</label>
-                                            <select name="set" id="inputState" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <?php while($row=mysqli_fetch_array($set_res)){?>
-                                                <option value="<?php echo $row['s_id']; ?>"><?php echo $row['name']; ?></option>
-                                                <?php }?>
-                                            </select>
+                                            
                                         </div>
                                     </div>
 

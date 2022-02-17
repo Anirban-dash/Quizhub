@@ -162,7 +162,7 @@ if(isset($_SESSION['id'])){
                                         </div>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
                                             <li><a href="login.php" data-toggle="tooltip" data-placement="bottom" title=""><i class="mdi mdi-login" ></i></a></li>
-                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""><i class="mdi mdi-account-plus-outline "></i></a></li>
+                                            <li><a href="signup.php" data-toggle="tooltip" data-placement="bottom" title=""><i class="mdi mdi-account-plus-outline "></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

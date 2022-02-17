@@ -2,6 +2,12 @@
 session_start();
 require("conn.php");
 require("adminHeader.php");
+$qu_id=$_GET['q_id'];
+$edit_ques="SELECT * FROM question where id='$qu_id'";
+$ques_res=mysqli_query($con,$edit_ques) or die(mysqli_error($con));
+$question=mysqli_fetch_array($ques_res);
+$op_sql="SELECT * from options where q_id='$qu_id' ORDER BY op_no";
+$op_res=mysqli_query($con,$op_sql) or die(mysqli_error($con));
 $set_query="SELECT * FROM sets";
 $c_sql="SELECT * FROM `catagory`";
 $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
@@ -12,7 +18,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Hi <?php echo $name; ?></h4>
-                            <p class="mb-0">Add some question for users</p>
+                            <p class="mb-0">Edit your Question</p>
                         </div>
                     </div>
                 </div>
@@ -23,32 +29,37 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                         </div>
                         <div class="card-body">
                             <div class="basic-form">
-                                <form action="questionadd.php" method="post">
+                                <form action="queseditsubmit.php" method="post">
 
                                     <div class="form-row">
+                                        <input type="number" name="q_id" value="<?php echo$qu_id?>" hidden>
                                         <div class="form-group col-md-8">
                                             <label>Question Title</label>
-                                            <input name="ques" type="text" class="form-control" placeholder="Enter the question">
+                                            <input name="ques" value="<?php echo $question['title']; ?>" type="text" class="form-control" placeholder="Enter the question">
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option1</label>
-                                            <input name="opo" type="text" class="form-control" placeholder="Enter option number 1">
+                                            <?php $op_row=mysqli_fetch_array($op_res); ?>
+                                            <input name="opo" value="<?php echo $op_row['answer']; ?>" type="text" class="form-control" placeholder="Enter option number 1">
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option2</label>
-                                            <input name="ops" type="text" class="form-control" placeholder="Enter option number 2">
+                                            <?php $op_row=mysqli_fetch_array($op_res); ?>
+                                            <input name="ops" value="<?php echo $op_row['answer']; ?>" type="text" class="form-control" placeholder="Enter option number 2">
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option3</label>
-                                            <input name="opt" type="text" class="form-control" placeholder="Enter option number 3">
+                                            <?php $op_row=mysqli_fetch_array($op_res); ?>
+                                            <input name="opt" value="<?php echo $op_row['answer']; ?>" type="text" class="form-control" placeholder="Enter option number 3">
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option4</label>
-                                            <input name="opf" type="text" class="form-control" placeholder="Enter option number 4">
+                                            <?php $op_row=mysqli_fetch_array($op_res); ?>
+                                            <input name="opf" value="<?php echo $op_row['answer']; ?>" type="text" class="form-control" placeholder="Enter option number 4">
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Correct Option</label>
-                                            <input name="corr" onkeyup="show()" id="myinp" type="number" class="form-control"
+                                            <input name="corr" onkeyup="show()" id="myinp" value="<?php echo $question['correct'] ?>" type="number" class="form-control"
                                                 placeholder="Enter Correct Option number">
                                                 <p id="warn" class="text-danger"></p>
                                         </div>
@@ -61,7 +72,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                                                 <?php
                                                 $res = mysqli_query($con, $c_sql) or die(mysqli_error($con));
                                                 while ($row = mysqli_fetch_array($res)) {?>
-                                                <option value="<?php echo $row['Cat_id'] ?>"><?php echo $row['Name']; ?></option>
+                                                <option value="<?php echo $row['Cat_id'] ?>" <?php if($row['Cat_id']==$question['catagory']){echo "selected";} ?>><?php echo $row['Name']; ?></option>
                                                 <?php }?>
                                             </select>
                                         </div>
@@ -70,7 +81,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                                             <select name="set" id="inputState" class="form-control">
                                                 <option selected>Choose...</option>
                                                 <?php while($row=mysqli_fetch_array($set_res)){?>
-                                                <option value="<?php echo $row['s_id']; ?>"><?php echo $row['name']; ?></option>
+                                                <option value="<?php echo $row['s_id']; ?>" <?php if($row['s_id']==$question['sets']){echo "selected";} ?> ><?php echo $row['name']; ?></option>
                                                 <?php }?>
                                             </select>
                                         </div>
@@ -78,7 +89,10 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
 
                                     <button id="mybtn" type="submit" class="btn btn-rounded btn-info"><span
                                             class="btn-icon-left text-info"><i class="ti-plus color-info"></i>
-                                        </span>Add</button>
+                                        </span>Update</button>
+                                        <a href="deleteques.php?q_id=<?php echo$qu_id; ?>" ><button style="float:right;" type="button" class="btn btn-rounded btn-danger"><span
+                                            class="btn-icon-left text-info"><i class="ti-trash text-danger"></i>
+                                        </span>Delete</button></a>
                                 </form>
                             </div>
                         </div>
@@ -98,7 +112,8 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
             <script>
                 <?php 
                 if(isset($_GET['q'])){
-                    echo 'swal("Success!", "Question added Successfully!", "success");';
+                    echo 'swal("Success!", "Question updated Successfully!", "success");';
+                    unset($_GET['q']);
                 }
                 ?>
                 function show(){

@@ -14,7 +14,7 @@ session_start();
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="about.css">
         <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
-        <title>Responsive bottom navigation</title>
+        <title>Quizhub|Make your day with knowledge</title>
     </head>
     <body>
         <!--=============== HEADER ===============-->

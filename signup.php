@@ -116,17 +116,17 @@ if(isset($_SESSION['id'])){
                     <div class="field">
                         <div class="label">
                             Name</div>
-                        <input type="text" name="name">
+                        <input type="text" name="name" required>
                     </div>
                     <div class="field">
                         <div class="label">
                             Email Address</div>
-                        <input type="email" name="mail">
+                        <input type="email" name="mail" required>
                     </div>
                     <div class="field">
                         <div class="label">
                             Gender</div>
-                        <select name="gender">
+                        <select name="gender" required>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Other</option>
@@ -142,12 +142,12 @@ if(isset($_SESSION['id'])){
                     <div class="field">
                         <div class="label">
                             Address</div>
-                        <input type="text" name="addr">
+                        <input type="text" name="addr" required>
                     </div>
                     <div class="field">
                         <div class="label">
                             Phone Number</div>
-                        <input type="Number" name="mobile">
+                        <input type="Number" name="mobile" required>
                     </div>
                     <div class="field btns">
                         <button class="prev-1 prev">Previous</button>
@@ -160,7 +160,7 @@ if(isset($_SESSION['id'])){
                     <div class="field">
                         <div class="label">
                             First topic</div>
-                        <select name="finter">
+                        <select name="finter" required>
                         <?php
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
 while ($row = mysqli_fetch_array($res)) {?>
@@ -168,7 +168,7 @@ while ($row = mysqli_fetch_array($res)) {?>
                            <?php }?>
                         </select>
                     </div>
-                    <div class="field">
+                    <div class="field" required>
                         <div class="label">
                             Second topic</div>
                         <select name="secondinter">
@@ -179,7 +179,7 @@ while ($row = mysqli_fetch_array($res)) {?>
                            <?php }?>
                         </select>
                     </div>
-                    <div class="field">
+                    <div class="field" required>
                         <div class="label">
                             Third topic</div>
                         <select name="thirdinter">
@@ -202,12 +202,12 @@ while ($row = mysqli_fetch_array($res)) {
                     <div class="field">
                         <div class="label">
                             Password</div>
-                        <input id="pass" type="text" name="passport">
+                        <input id="pass" type="text" name="passport" required>
                     </div>
                     <div class="field">
                         <div class="label">
                             Confirm Password</div>
-                        <input onkeyup="show()" id="cpass" type="password">
+                        <input onkeyup="show()" id="cpass" type="password" required>
 
 
                     </div>
