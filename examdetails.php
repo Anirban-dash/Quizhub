@@ -93,7 +93,7 @@ $score=mysqli_fetch_array($score_res);
                                         <ul class="list-group">
                                             <?php
                                                 $qId=$row['id'];
-                                                $user_chose="SELECT * from user_ans where q_id='$qId'";
+                                                $user_chose="SELECT * from user_ans where q_id='$qId' and u_id='$us_id'";
                                                 $user_chose_query=mysqli_query($con,$user_chose) or die(mysqli_error($con));
                                                 $user_res=mysqli_fetch_array($user_chose_query);
                                                 $op_sql="SELECT * from options where q_id='$qId' ORDER BY op_no";
