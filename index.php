@@ -61,7 +61,7 @@
                     </ul>
                 </div>
 
-                <img src="assets/img/perfil.png" alt="" class="nav__img">
+                <img src="./images/Quiz-modified.png" alt="" class="nav__img">
             </nav>
         </header>
 
@@ -73,6 +73,6 @@
 
           
         </main>
-        <script src="assets/js/main.js"></script>
+        <!-- <script src="assets/js/main.js"></script> -->
     </body>
 </html>

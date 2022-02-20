@@ -1,70 +1,113 @@
+let btn=document.getElementById("myBtn");
+    btn.disabled=true;
+    let init=document.getElementsByClassName("init"); 
+    let firstele=document.getElementById("firstSkill");
+    let seconele=document.getElementById("secondSkill");
+    let thirdele=document.getElementById("thirdSkill");
+    let gen=document.getElementById("gen");
+    let fpreVal=0;
+    let spreVal=0;
+    let tpreVal=0;
+    function firstSelect(val){
+        let secchild=seconele.getElementsByTagName("option");
+        let thchide=thirdele.getElementsByTagName("option");
+        for(let i=0;i<secchild.length;i++){
+            if(secchild[i].value===val){
+                secchild[i].hidden=true; 
+            }else if(secchild[i].value===fpreVal){
+                secchild[i].hidden=false;
+            }
+            if(thchide[i].value===val){
+                thchide[i].hidden=true;
+            }else if(thchide[i].value===fpreVal){
+                thchide[i].hidden=false;
+            }
+        }
+        fpreVal=val;
+        btn.disabled=false;
+        for(let j=0;j<4;j++){
+            if(init[j].selected===true){
+                btn.disabled=true;
+            }
+        } 
+    }
+    function secondSelect(val){
+        let firchild=firstele.getElementsByTagName("option");
+        let thchide=thirdele.getElementsByTagName("option");
+        for(let i=0;i<firchild.length;i++){
+            if(firchild[i].value===val){
+                firchild[i].hidden=true; 
+            }else if(firchild[i].value===spreVal){
+                firchild[i].hidden=false;
+            }
+            if(thchide[i].value===val){
+                thchide[i].hidden=true;
+            }else if(thchide[i].value===spreVal){
+                thchide[i].hidden=false;
+            }
+        }
+        spreVal=val;
+        btn.disabled=false;
+        for(let j=0;j<4;j++){
+            if(init[j].selected===true){
+                btn.disabled=true;
+            }
+        } 
+    }
+    function thirdSelect(val){
+        let firchild=firstele.getElementsByTagName("option");
+        let secchild=seconele.getElementsByTagName("option");
+        for(let i=0;i<firchild.length;i++){
+            if(firchild[i].value===val){
+                firchild[i].hidden=true; 
+            }else if(firchild[i].value===tpreVal){
+                firchild[i].hidden=false;
+            }
+            if(secchild[i].value===val){
+                secchild[i].hidden=true; 
+            }else if(secchild[i].value===tpreVal){
+                secchild[i].hidden=false;
+            }
+        }
+        tpreVal=val;
+        btn.disabled=false;
+        for(let j=0;j<4;j++){
+            if(init[j].selected===true){
+                btn.disabled=true;
+            }
+        } 
+    }
+    function genderClass(val){
+        let info="fa-info-circle";
+        let male="fa-male";
+        let female="fa-female";
+        let trans="fa-transgender";
+        if(val=="0"){
+            gen.classList.add(info);
+            gen.classList.remove(male);
+            gen.classList.remove(female);
+            gen.classList.remove(trans);
+        }else if(val=="Male"){
+            gen.classList.add(male);
+            gen.classList.remove(info);
+            gen.classList.remove(female);
+            gen.classList.remove(trans);
+        }else if(val=="Female"){
+            gen.classList.add(female);
+            gen.classList.remove(info);
+            gen.classList.remove(male);
+            gen.classList.remove(trans);
+        }else{
+            gen.classList.add(trans);
+            gen.classList.remove(info);
+            gen.classList.remove(male);
+            gen.classList.remove(female);
+        }
+        btn.disabled=false;
+        for(let j=0;j<4;j++){
+            if(init[j].selected===true){
+                btn.disabled=true;
+            }
+        } 
 
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-let current = 1;
-
-nextBtnFirst.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-submitBtn.addEventListener("click", function(){
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-  
-});
-
-prevBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-prevBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-prevBtnFourth.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
+    }

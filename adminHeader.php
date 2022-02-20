@@ -105,7 +105,7 @@ $name=$_SESSION['name'];
                     <li><a href="catagoryadd.php"><i class="ti-menu-alt"></i><span class="nav-text">Add
                                 Catagory</span></a>
                     </li>
-                    <li><a href="manageset.php"><i class="ti-notepad"></i><span class="nav-text">Manage Set</span></a>
+                    <li><a href="manageset.php"><i class="ti-agenda"></i><span class="nav-text">Manage Set</span></a>
                     </li>
                     <li><a href="logout.php"><i class="ti-power-off"></i><span class="nav-text">Logout</span></a>
                     </li>

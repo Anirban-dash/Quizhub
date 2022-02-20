@@ -1,5 +1,4 @@
 <?php
-session_start();
 require("header.php");
 $id=$_SESSION['id'];
 $sql="SELECT * FROM user where User_ID='$id'";
@@ -11,11 +10,11 @@ $row=mysqli_fetch_array($result);
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Hi, <?php echo $row['name']?></h4>
+                            <h4>Hi, <?php echo $_SESSION['name'];?></h4>
                             <p class="mb-0">Here your Dashboard</p>
                         </div>
                     </div>
-
+ 
                 </div>
 
                 <div class="row">
@@ -74,44 +73,16 @@ $row=mysqli_fetch_array($result);
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12">
+                <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All Exam Result</h4>
+                                <h4 class="card-title">Level 1</h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table student-data-table m-t-20">
-                                        <thead>
-                                            <tr>
-                                                <th>Topic</th>
-                                                <th>Score</th>
-                                                <th>Set</th>
-                                                <th>Attempt</th>
-                                                <th>Correct</th>
-                                                <th>Date</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Java</td>
-                                                <td>70</td>
-                                                <td>
-                                                    A
-                                                </td>
-                                                <td>
-                                                    20
-                                                </td>
-                                                <td>
-                                                    16
-                                                </td>
-                                                <td>20/04/2017</td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
+                                <div class="progress mt-3">
+                                    <div class="progress-bar bg-success progress-animated" style="width: 90%; height:6px;" role="progressbar">
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +92,7 @@ $row=mysqli_fetch_array($result);
         </div>
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
             </div>
         </div>
     </div>

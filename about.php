@@ -12,7 +12,7 @@ session_start();
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="assets/css/about.css">
         <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
         <title>Quizhub|Make your day with knowledge</title>
     </head>

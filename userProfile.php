@@ -4,6 +4,9 @@ require("conn.php");
 if(isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $sql="SELECT * FROM user where User_ID='$id'";
+    $image="SELECT * FROM images where us_id='$id'";
+    $image_res=mysqli_query($con,$image) or die(mysqli_error($con));
+    $img=mysqli_fetch_array($image_res);
     $result=mysqli_query($con,$sql) or die(mysqli_error($con));
     $row=mysqli_fetch_array($result);
     $name=$row['name'];
@@ -85,7 +88,7 @@ if(isset($_SESSION['id'])){
                             <div class="row m-l-0 m-r-0">
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
-                                        <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                        <div class="m-b-25"><?php if(isset($_SESSION['id'])){ echo'<img src="./uploads/'.$img['file_name'].'" class="img-radius" alt="User-Profile-Image">';}else{ ?> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"><?php }?> </div>
                                         <h6 class="f-w-600"><?php echo$name;?><?php if(isset($_SESSION['id'])){?>  <i class="mdi mdi-gender-<?php echo strtolower($row['Gender']);?> feather icon-edit m-t-10 f-16"></i><?php }?></h6>
                                         <p><?php echo$name;?></p><?php if(isset($_SESSION['id'])){?> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i> <?php }?>
                                     </div>

@@ -44,13 +44,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: var(--header-height) 0 0 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--body-color);
-  color: var(--text-color);
-}
+
 
 ul {
   list-style: none;
@@ -81,12 +75,6 @@ img {
   height: 100vh;
 }
 
-/*=============== LAYOUT ===============*/
-.container {
-  max-width: 968px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
 
 /*=============== HEADER ===============*/
 .header {

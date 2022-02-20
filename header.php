@@ -1,7 +1,8 @@
 <?php
+session_start();
 require("conn.php");
 if (!isset($_SESSION['id'])) {
-    header("location:login.php");
+    header("location:login.php"); 
 }
 $query="SELECT * from catagory";
 $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
@@ -14,9 +15,10 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Focus - Bootstrap Admin Dashboard </title>
+    <title>Quizhub - Make your day with knowledge </title>
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/timer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +31,7 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
     </div>
     <div id="main-wrapper">
         <div class="nav-header">
-            <a href="index2.html" class="brand-logo">
+            <a href="index.php" class="brand-logo">
                 <img class="logo-abbr" src="./images/Quiz (2) (1).png" alt="">
                 <img class="logo-compact" src="./images/banner-name.png" alt="">
                 <img class="brand-title" src="./images/banner-name.png" alt="">
@@ -53,14 +55,14 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
 
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="ti-menu"></i>
+                                    <i class="ti-more"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="#" class="dropdown-item">
                                         <i class="ti-user"></i>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="profile.html" class="dropdown-item">
+                                    <a href="logout.php" class="dropdown-item">
                                         <i class="ti-power-off"></i>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -74,7 +76,7 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
         <div class="quixnav">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li><a href="index2.html"><i class="ti-home"></i><span class="nav-text">Home</span></a>
+                    <li><a href="studentAdmin.php"><i class="ti-dashboard"></i><span class="nav-text">Dashboard</span></a>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-book"></i><span
                                 class="nav-text">Topics</span></a>
@@ -85,9 +87,9 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
                             <?php }?>
                         </ul>
                     </li>
-                    <li><a href="profile.html"><i class="ti-user"></i><span class="nav-text">Profile</span></a>
+                    <li><a href="profile.php"><i class="ti-user"></i><span class="nav-text">Profile</span></a>
                     </li>
-                    <li><a href="examhistory.html"><i class="ti-reload"></i><span class="nav-text">Exam
+                    <li><a href="examhistory.php"><i class="ti-reload"></i><span class="nav-text">Exam
                                 History</span></a>
                     </li>
                     <li><a href="logout.php"><i class="ti-power-off"></i><span class="nav-text">Logout</span></a>
@@ -96,3 +98,4 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
                 </ul>
             </div>
         </div>
+        
