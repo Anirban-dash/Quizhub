@@ -65,12 +65,10 @@ $res=mysqli_query($con,$q_sql) or die(mysqli_error($con));
                             <div class="card-body">
                                 <div class="basic-list-group">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-warning"><i class="ti-alert"></i> Give the exam
-                                            sincierly</li>
-                                        <li class="list-group-item text-info"><i class="ti-alarm-clock"></i> The test will for 1 minutes for test if you are not able to complete within time it will automatically submit the test</li>
-                                        <li class="list-group-item text-warning"><i class="ti-alert"></i> You Can't
-                                            retake the test</li>
-                                        <li class="list-group-item text-warning"><i class="ti-save"></i> You can't copy any content</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-file"></i> This is your next set, and after this you will get a new set</li>
+                                        <li class="list-group-item text-info"><i class="ti-alarm-clock"></i> There will be a time limit, if you can't do with in time exam will be auto submitted</li>
+                                        <li class="list-group-item text-warning"><i class="ti-alert"></i> You Can't retake the test, once you take the test of this set, you can't be able to do the exam in same set</li>
+                                        <li class="list-group-item text-warning"><i class="ti-save"></i> You can't copy any content, you can't select or copy any text in the test.</li>
                                         <li class="list-group-item text-success"><i class="ti-thumb-up"></i> Best of Luck</li>
                                     </ul>
                                 </div>
@@ -91,7 +89,7 @@ $res=mysqli_query($con,$q_sql) or die(mysqli_error($con));
         </div>
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
             </div>
         </div>
     </div>

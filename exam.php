@@ -31,7 +31,6 @@ $question_query=mysqli_query($con,$question_sql) or die(mysqli_error($con));
         <?php if(mysqli_num_rows($time_res)!=0 && mysqli_num_rows($question_query)!=0){?>
         <div id="toast-container" class="toast-top-right">
             <div class="toast toast-success" aria-live="polite" style="display: block;">
-                <i class="fa-regular fa-clock-rotate-left"></i>
                 <div class="toast-progress" id="showprog"></div>
                 <div class="toast-title" id="showtime">
                     
@@ -97,7 +96,7 @@ $question_query=mysqli_query($con,$question_sql) or die(mysqli_error($con));
 </div>
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2019</p>
+        <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
     </div>
 </div>
 </div>

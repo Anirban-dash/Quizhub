@@ -100,6 +100,10 @@ $image=mysqli_fetch_array($image_query);
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="basic-information">
+                                                            <h4>Edit</h4>
+                                                            <span><a href="editUser.php"><i class="ti-new-window"></i></a></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +120,7 @@ $image=mysqli_fetch_array($image_query);
 </div>
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+        <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
     </div>
 </div>
 </div>

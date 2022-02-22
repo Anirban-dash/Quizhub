@@ -4,6 +4,9 @@ require "conn.php";
 require "adminHeader.php";
 $sql = "SELECT * from question";
 $res = mysqli_query($con, $sql) or die(mysqli_error($con));
+$get_cat="SELECT * from catagory";
+$get_query=mysqli_query($con, $get_cat) or die(mysqli_error($con));
+
 ?>
 
 <div class="content-body">
@@ -28,17 +31,29 @@ $res = mysqli_query($con, $sql) or die(mysqli_error($con));
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <input type="text" id="myInput" onkeyup="myFunction()"
+                                <div class="form-row d-flex justify-content-between">
+                                    <input class="ml-2" type="text" id="myInput" onkeyup="myFunction()"
                                         placeholder="Search Questions">
-                                    <table id="myTable" class="table student-data-table m-t-20">
+                                        <div class="form-group col-md-4">
+                                        <select onchange="getCat(this.value);" class="form-control   custom-select-lg mb-3" >
+                                        <option value="1">All</option>
+                                            <?php while($get = mysqli_fetch_array($get_query)){?>
+    <option value="<?php echo $get['Name'];?>"><?php echo $get['Name'];?></option>
+    <?php }?>
+  
+    </select>
+</div>
+</div>
+                            <table id="myTable" class="table student-data-table m-t-20">
                                         <thead>
                                             <tr>
+                                                <th>No.</th>
                                                 <th>Question</th>
                                                 <th>Option1</th>
                                                 <th>Option2</th>
                                                 <th>Option3</th>
                                                 <th>Option4</th>
-                                                <th>Correct Option</th>
+                                                <th>Correct</th>
                                                 <th>Catagory</th>
                                                 <th>Set</th>
                                                 <th>Edit</th>
@@ -46,9 +61,11 @@ $res = mysqli_query($con, $sql) or die(mysqli_error($con));
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $i=1;
 while ($row = mysqli_fetch_array($res)) {
     ?>
                                             <tr>
+                                            <td><?php echo $i; ?></td>
                                                 <td><?php echo $row['title'] ?></td>
                                                 <?php
 $ques_id = $row['id'];
@@ -73,7 +90,9 @@ $c_id = $row['catagory'];
                                                 <td><?php echo $set_row['name'] ?></td>
                                                 <td><a href="quesedit.php?q_id=<?php echo $row['id']; ?>"><i class="ti-pencil-alt text-info"></i></a>
                                             </tr>
-                                           <?php }?>
+                                           <?php 
+                                        $i+=1;
+                                        }?>
 
                                         </tbody>
 
@@ -125,6 +144,27 @@ if (isset($_GET['d'])) {
             }
           }
         }
+        function getCat(val){
+            console.log(val);
+            table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          let j=1;
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[7];
+            cnt= tr[i].getElementsByTagName("td")[0];
+            if(td){
+               let txtValue = td.textContent || td.innerText;
+                if(txtValue==val || val=='1'){
+                    tr[i].style.display = "";
+                    cnt.innerText=j;
+                    j+=1;
+              } else {
+                tr[i].style.display = "none";
+              }
+                }
+            }
+          }
+        
         </script>
 
 </body>

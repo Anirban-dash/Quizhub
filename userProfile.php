@@ -24,11 +24,12 @@ if(isset($_SESSION['id'])){
         <!--=============== BOXICONS ===============-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="profile.css">
+    <title>Quizhub - Make your day with knowledge </title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
         <link rel="stylesheet" href="./assets/css/styles.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
         
-        <title>Responsive bottom navigation</title>
     </head>
     <body>
         <header class="header" id="header">
@@ -73,10 +74,16 @@ if(isset($_SESSION['id'])){
                                 <span class="nav__name">Profile</span>
                             </a>
                         </li>
+                        <li class="nav__item">
+                        <a href="search.php" class="nav__link">
+                            <i class='bx bx-search nav__icon'></i>
+                            <span class="nav__name">Search</span>
+                        </a>
+                    </li>
                     </ul>
                 </div>
 
-                <img src="assets/img/perfil.png" alt="" class="nav__img">
+                <img src="./images/Quiz-modified.png" alt="" class="nav__img">
             </nav>
         </header>
 
@@ -90,7 +97,7 @@ if(isset($_SESSION['id'])){
                                     <div class="card-block text-center text-white">
                                         <div class="m-b-25"><?php if(isset($_SESSION['id'])){ echo'<img src="./uploads/'.$img['file_name'].'" class="img-radius" alt="User-Profile-Image">';}else{ ?> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"><?php }?> </div>
                                         <h6 class="f-w-600"><?php echo$name;?><?php if(isset($_SESSION['id'])){?>  <i class="mdi mdi-gender-<?php echo strtolower($row['Gender']);?> feather icon-edit m-t-10 f-16"></i><?php }?></h6>
-                                        <p><?php echo$name;?></p><?php if(isset($_SESSION['id'])){?> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i> <?php }?>
+                                        <p><?php echo$name;?></p><?php if(isset($_SESSION['id'])){?><a style="text-decoration:none; color:white" href="editUser.php"><i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i></a><?php }?>
                                     </div>
                                 </div>
                                 <?php 

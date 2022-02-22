@@ -7,6 +7,7 @@ $score_id=intval($_GET['sc_id']);
 $score_sql="SELECT * from user_score where score_id='$score_id'";
 $score_res=mysqli_query($con,$score_sql) or die(mysqli_error($con));
 $score=mysqli_fetch_array($score_res);
+$us_score=$score['score'];
 ?>
 
 
@@ -62,17 +63,38 @@ $score=mysqli_fetch_array($score_res);
                         <div class="col-md-4">
                             <div class="card bg-light">
                                 <div class="card-header">
-                                    <h5 class="card-title">Statistics</h5>
+                                    <h5 class="card-title">
+                                    <p class="badge badge-rounded badge-outline-info">Statistics</p>
+                                    </h5>
                                 </div>
                                 <div class="card-body mb-0">
                                     <div class=""><span class="donut"
                                         data-peity='{ "fill": ["rgb(117, 180, 50)", "rgb(192, 10, 39)"]}'><?php echo $score['corr']; ?>/<?php echo $score['attmpt']; ?></span>
                                 </div>
                                 </div>
-                                <div class="card-footer bg-transparent border-0">
+                                <div class="card-footer  border-0">
                                     <span class="badge badge-success badge-circle"> </span> <p>Correct </p>
                                     <span class="badge badge-danger badge-circle"> </span> <p>Incorrect</p>
-                                </div>
+                                    <div class="container d-flex justify-content-center" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; border-radius:10px;">
+                                    <div  class="container-fluid">
+                                    <?php if($us_score<15){ ?>
+                                            <span class="text-danger"><i class="fa-solid fa-face-sad-tear fa-2x"></i> Very Poor</span>
+                                            <?php }else if($us_score>=15 && $us_score<30){?> 
+                                    <span style="color:crimson;"><i class="fa fa-face-frown fa-2x"></i> Poor</span>
+                                    <?php }else if($us_score>=30 && $us_score<50){?>
+                                    <span class="text-warning"><i class="fa fa-face-rolling-eyes fa-2x"></i> Satisfactory</span>
+                                    <?php }else if($us_score>=50 && $us_score<65){?>
+                                    <span class="text-success"><i class="fa fa-face-grin fa-2x"></i> Good</span>
+                                    <?php }else if($us_score>=65 && $us_score<80){?>
+                                    <span class="text-success"><i class="fa fa-face-grin-wide fa-2x"></i> Very Good</span>
+                                    <?php }else if($us_score>=80 && $us_score<95){?>
+                                    <span class="text-info"><i class="fa fa-face-grin-stars fa-2x"></i> You are unsoppable</span>
+                                    <?php }else if($us_score>=95){?>
+                                    <span style="color:darkyellow"><i class="fa-solid fa-face-dizzy fa-2x"></i> Legend</span>
+                                    <?php }?>
+                                    </div>
+                                    </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -99,7 +121,7 @@ $score=mysqli_fetch_array($score_res);
                                                 $op_sql="SELECT * from options where q_id='$qId' ORDER BY op_no";
                                                 $op_row=mysqli_query($con,$op_sql) or die(mysqli_error($con));
                                                 while($op_res=mysqli_fetch_array($op_row)){
-                                                    if(mysqli_num_rows($user_chose_query)!=0){
+                                                    if(mysqli_num_rows($user_chose_query)!==0 && $user_res['u_op']!=0){
                                                         if($user_res['u_op']==$user_res['corr_op']){
                                                             if($op_res['op_no']==$user_res['corr_op']){
                                                                 echo '<li class="list-group-item text-black-50 border-success"> '.$op_res['answer'].'<i class="ti-check text-success" style="float: right;"></i></li>';
@@ -129,7 +151,7 @@ $score=mysqli_fetch_array($score_res);
                                 </div>
                                 
                                 <?php
-                                    if(mysqli_num_rows($user_chose_query)!=0){
+                                    if(mysqli_num_rows($user_chose_query)!=0 && $user_res['u_op']!=0){
                                         if($user_res['u_op']==$user_res['corr_op']){
                                             echo '<div class="card-footer bg-transparent text-success border-0">
                                             Correct <i class="ti-check text-success"></i>';
@@ -139,7 +161,7 @@ $score=mysqli_fetch_array($score_res);
                                         }
                                     }else{
                                         echo '<div class="card-footer bg-transparent text-warning border-0">
-                                        Unattempt <i class="ti-hand-stop text-warning"></i>';
+                                        Unattempt <i class="fa-solid fa-comment-slash"></i>';
                                     }
                                 ?>
                                     
@@ -152,7 +174,7 @@ $score=mysqli_fetch_array($score_res);
             </div>
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2019</p>
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
                 </div>
             </div>
         </div>

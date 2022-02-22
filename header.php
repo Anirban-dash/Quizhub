@@ -19,6 +19,12 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/timer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #toggle{
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -91,6 +97,10 @@ $c_res=mysqli_query($con,$query)or die(mysqli_error($con));
                     </li>
                     <li><a href="examhistory.php"><i class="ti-reload"></i><span class="nav-text">Exam
                                 History</span></a>
+                    </li>
+                    <li><a href="password.php"><i class="ti-settings"></i><span class="nav-text">Change Password</span></a>
+                    </li>
+                    <li><a href="search.php"><i class="fa fa-search"></i><span class="nav-text">Search your friend</span></a>
                     </li>
                     <li><a href="logout.php"><i class="ti-power-off"></i><span class="nav-text">Logout</span></a>
                     </li>

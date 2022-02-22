@@ -15,6 +15,8 @@ $name=$_SESSION['name'];
     <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         #myInput {
             background-image: url('https://img.icons8.com/external-dreamstale-lineal-dreamstale/23/000000/external-search-ui-dreamstale-lineal-dreamstale-2.png');
@@ -106,6 +108,10 @@ $name=$_SESSION['name'];
                                 Catagory</span></a>
                     </li>
                     <li><a href="manageset.php"><i class="ti-agenda"></i><span class="nav-text">Manage Set</span></a>
+                    </li>
+                    <li><a href="vistitorDetails.php"><i class="ti-comments"></i><span class="nav-text">Visitors</span></a>
+                    </li>
+                    <li><a href="adminpassport.php"><i class="ti-settings"></i><span class="nav-text">Change Passport</span></a>
                     </li>
                     <li><a href="logout.php"><i class="ti-power-off"></i><span class="nav-text">Logout</span></a>
                     </li>

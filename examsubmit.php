@@ -79,7 +79,9 @@ $score_res=mysqli_query($con,$score_sql) or die(mysqli_error($con));
                         <div class="col-md-4">
                             <div class="card bg-light">
                                 <div class="card-header">
-                                    <h5 class="card-title">Statistics</h5>
+                                    <h5 class="card-title">
+                                    <p class="badge badge-rounded badge-outline-info">Statistics</p>
+                                    </h5>
                                 </div>
                                 <div class="card-body mb-0">
                                     <div class=""><span class="donut"
@@ -89,6 +91,25 @@ $score_res=mysqli_query($con,$score_sql) or die(mysqli_error($con));
                                 <div class="card-footer bg-transparent border-0">
                                     <span class="badge badge-success badge-circle"> </span> <p>Correct </p>
                                     <span class="badge badge-danger badge-circle"> </span> <p>Incorrect</p>
+                                    <div class="container d-flex justify-content-center" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; border-radius:10px;">
+                                    <div  class="container-fluid">
+                                        <?php if($score<15){ ?>
+                                            <span class="text-danger"><i class="fa-solid fa-face-sad-tear fa-2x"></i> Very Poor</span>
+                                            <?php }else if($score>=15 && $score<30){?> 
+                                    <span style="color:crimson;"><i class="fa fa-face-frown fa-2x"></i> Poor</span>
+                                    <?php }else if($score>=30 && $score<50){?>
+                                    <span class="text-warning"><i class="fa fa-face-rolling-eyes fa-2x"></i> Satisfactory</span>
+                                    <?php }else if($score>=50 && $score<65){?>
+                                    <span class="text-success"><i class="fa fa-face-grin fa-2x"></i> Good</span>
+                                    <?php }else if($score>=65 && $score<80){?>
+                                    <span class="text-success"><i class="fa fa-face-grin-wide fa-2x"></i> Very Good</span>
+                                    <?php }else if($score>=80 && $score<95){?>
+                                    <span class="text-info"><i class="fa fa-face-grin-stars fa-2x"></i> You are unsoppable</span>
+                                    <?php }else if($score>=95){?>
+                                    <span style="color:darkyellow"><i class="fa-solid fa-face-dizzy fa-2x"></i> Legend</span>
+                                    <?php }?>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +193,7 @@ $score_res=mysqli_query($con,$score_sql) or die(mysqli_error($con));
             </div>
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Anirban</a> 2022</p>
                 </div>
             </div>
         </div>

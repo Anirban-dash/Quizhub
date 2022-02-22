@@ -1,17 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap'); */
 
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-body{
-    font-family: 'Playfair Display', serif;
-    display: grid;
-    align-content: center;
-    min-height: 100vh;
-}
+
 section{
     margin-top: 70px;
     display: grid;
@@ -107,7 +102,11 @@ margin:50px auto
     color: #C850C0;
     cursor: pointer;
 }
-
+.container {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
 /*****************/
 
