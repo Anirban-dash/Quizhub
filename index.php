@@ -108,21 +108,14 @@ if (!isset($_SESSION['id'])) {?>
                 </div>
 
                 <div class="col-sm-4 st-service-box">
-                    <span><i class="fa fa-weixin"></i></span>
-                    <h3 class="text-uppercase">Support</h3>
-                    <p>You can reached with us if you're facing any issues, we are here for you always</p>
+                    <span><i class="fa fa-search"></i></span>
+                    <h3 class="text-uppercase">Find</h3>
+                    <p>You can search your friend in our platform and see their prgress and levels give a try to our platform</p>
 
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
     <section id="cont" class="contact">
         <div class="container">
             <div class="row">
@@ -154,12 +147,6 @@ if (!isset($_SESSION['id'])) {?>
     </section>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        let obj={
-            "name":"some",
-            "catagory":"this"
-        }
-        let temp=new FormData(obj);
-        console.log(temo);
     function fetchcall() {
         var data = new FormData(document.getElementById("myForm"));
         console.log(data);

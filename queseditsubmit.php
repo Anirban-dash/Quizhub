@@ -24,3 +24,4 @@ $res_s=mysqli_query($con,$ops_sql) or die(mysqli_error($con));
 $res_t=mysqli_query($con,$opt_sql) or die(mysqli_error($con));
 $res_f=mysqli_query($con,$opf_sql) or die(mysqli_error($con));
 header("location:viewques.php?q=1");
+?>

@@ -29,7 +29,7 @@ $res=mysqli_query($con,$sql) or die(mysqli_error($con));
                                 <div class="form-row col-md-12">
                                     <div class="form-group col-md-12">
                                         <label>Catagory Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="java,c,c++,etc..">
+                                        <input type="text" name="name" class="form-control" placeholder="java,c,c++,etc.." required>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <?php if(isset($_GET['cat'])){?>

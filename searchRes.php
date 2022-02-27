@@ -4,10 +4,11 @@ $name = mysqli_real_escape_string($con, $_POST['name']);
 $search = $name . '%';
 $sql = "SELECT * FROM `user` WHERE name LIKE '$search'";
 $query = mysqli_query($con, $sql) or die(mysqli_error($con));
-if(mysqli_num_rows($query)==0){
+if(mysqli_num_rows($query)==0 || $name==''){
     echo '<tr class="warning no-result">
-    <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    <td> No result</td>
   </tr>';
+  die();
 }
 while ($row = mysqli_fetch_array($query)) {
     $search_name='<b>'.substr($row['name'],0,strlen($name)).'</b>'.substr($row['name'],strlen($name));

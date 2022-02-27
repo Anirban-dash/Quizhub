@@ -15,8 +15,8 @@
         <div class="logo"> <img src="./images/Quiz-modified.png" alt=""> </div>
         <div class="text-center mt-4 name"> QuizHub </div>
         <form action="loginSubmit.php" method="POST" class="p-3 mt-3">
-            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
-            <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password"> </div>
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password" required> </div>
             <?php if(isset($_GET['err'])){ ?>
             <div class="d-flex align-items-center text-danger">*Invalid Credential</div>
                 <?php } ?>

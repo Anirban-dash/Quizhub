@@ -28,36 +28,35 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                                     <div class="form-row">
                                         <div class="form-group col-md-8">
                                             <label>Question Title</label>
-                                            <input name="ques" type="text" class="form-control" placeholder="Enter the question">
+                                            <input name="ques" type="text" class="form-control" placeholder="Enter the question" required>
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option1</label>
-                                            <input name="opo" type="text" class="form-control" placeholder="Enter option number 1">
+                                            <input name="opo" type="text" class="form-control" placeholder="Enter option number 1" required>
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option2</label>
-                                            <input name="ops" type="text" class="form-control" placeholder="Enter option number 2">
+                                            <input name="ops" type="text" class="form-control" placeholder="Enter option number 2" required>
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option3</label>
-                                            <input name="opt" type="text" class="form-control" placeholder="Enter option number 3">
+                                            <input name="opt" type="text" class="form-control" placeholder="Enter option number 3" required>
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Option4</label>
-                                            <input name="opf" type="text" class="form-control" placeholder="Enter option number 4">
+                                            <input name="opf" type="text" class="form-control" placeholder="Enter option number 4" required>
                                         </div>
                                         <div class="form-group col-md-8">
                                             <label>Correct Option</label>
                                             <input name="corr" onkeyup="show()" id="myinp" type="number" class="form-control"
-                                                placeholder="Enter Correct Option number">
+                                                placeholder="Enter Correct Option number" required>
                                                 <p id="warn" class="text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label>Catagory</label>
-                                            <select name="catagory" id="inputState" class="form-control">
-                                                <option selected>Choose...</option>
+                                            <select name="catagory" id="inputState" class="form-control" required>
                                                 <?php
                                                 $res = mysqli_query($con, $c_sql) or die(mysqli_error($con));
                                                 while ($row = mysqli_fetch_array($res)) {?>
@@ -67,8 +66,7 @@ $set_res=mysqli_query($con,$set_query)or die(mysqli_error($con));
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label>Set</label>
-                                            <select name="set" id="inputState" class="form-control">
-                                                <option selected>Choose...</option>
+                                            <select name="set" id="inputState" class="form-control" required>
                                                 <?php while($row=mysqli_fetch_array($set_res)){?>
                                                 <option value="<?php echo $row['s_id']; ?>"><?php echo $row['name']; ?></option>
                                                 <?php }?>

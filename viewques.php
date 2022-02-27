@@ -132,12 +132,16 @@ if (isset($_GET['d'])) {
           filter = input.value.toUpperCase();
           table = document.getElementById("myTable");
           tr = table.getElementsByTagName("tr");
+          let j=1;
           for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
+            td = tr[i].getElementsByTagName("td")[1];
+            cnt= tr[i].getElementsByTagName("td")[0];
             if (td) {
               txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
+                cnt.innerText=j;
+                    j+=1;
               } else {
                 tr[i].style.display = "none";
               }
