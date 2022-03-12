@@ -20,5 +20,5 @@ This is a online quiz app where you can open your account and give quizzes.
 
 ## Demo
 
-[View Quizhub](https://quizhubapp.000webhostapp.com/)
+[View Quizhub](http://quizhub.infinityfreeapp.com/)
 
